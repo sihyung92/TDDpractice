@@ -15,6 +15,10 @@ public class Account {
     }
 
     public void depositMoney(Long money){
-        this.money = money;
+        this.money += money;
+    }
+
+    public void withdrawalMoney(Long money){
+        this.money -= money;
     }
 }
