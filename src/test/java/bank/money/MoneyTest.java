@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class MoneyTest {
 
@@ -57,5 +58,16 @@ class MoneyTest {
 
         //then
         assertThat(result.amount()).isEqualTo(expectedResult);
+    }
+
+    @DisplayName("0원보다 작으면 에러가 나는지 확인한다")
+    @Test
+    void 돈은_양수인지_확인한다() {
+        //given
+        Money money = new Money(1000L);
+
+        //when & then
+        assertThatThrownBy(() -> money.minusMoney(5000L))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }

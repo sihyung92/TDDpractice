@@ -6,9 +6,10 @@ public class Account {
     private Money money;
     private String owner;
 
-    public Account(){}
+    public Account() {
+    }
 
-    public Account(String ownerName){
+    public Account(String ownerName) {
         this.owner = ownerName;
     }
 
@@ -20,11 +21,11 @@ public class Account {
         return money.amount();
     }
 
-    public void depositMoney(Long money){
-        this.money.plusMoney(money);
+    public void depositMoney(Long money) {
+        this.money = this.money.plusMoney(money);
     }
 
-    public void withdrawalMoney(Long money){
-        this.money.minusMoney(money);
+    public void withdrawalMoney(Long money) {
+        this.money = this.money.minusMoney(money);
     }
 }
